@@ -1,0 +1,5 @@
+pyTelegramBotAPI
+pyyaml
+requests
+yandex-weather-api
+aiohttp
