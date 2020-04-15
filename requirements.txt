@@ -1,6 +1,4 @@
 pyTelegramBotAPI
 pyyaml
-requests
 yandex-weather-api
-aiohttp
 python-telegram-bot
