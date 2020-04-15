@@ -1,6 +1,5 @@
 import requests
 import yandex_weather_api as yw
-from bunch import bunchify
 from weather_bot.scripts.config_reader import ConfigReader
 
 
