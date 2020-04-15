@@ -23,6 +23,8 @@ Also you can get weather in another place by providing latitude and longitude co
 >Wind speed: 5.0
 >Pressure: 735.0 мм
 
+>Пора гулять! Выбери утепленный вариант демисезонной одежды, и не бойся ветра или непогоды, их сегодня не ожидается!
+
 
 # Requirements
 Python > 3.6.9 and higher
