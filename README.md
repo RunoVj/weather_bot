@@ -12,6 +12,9 @@
 - Выбранный язык: Python
 - Выбранный сервис для получения информации о погоде: Яндекс@Погода
 
+### Ссылка на видео с примером использования:
+https://drive.google.com/file/d/16fHezeeGIyERlqK45fznMJPRdpSf2EdH/view?usp=sharing
+
 ### Пример ответа от бота:
 
 <br/> Weather in Europe/Moscow:
