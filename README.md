@@ -18,9 +18,13 @@ Also you can get weather in another place by providing latitude and longitude co
 Пример ответа от бота:
 
 >Weather in Europe/Moscow:
+
 >Cloudy
+
 >Temperature: +5, feels like -1
+
 >Wind speed: 5.0
+
 >Pressure: 735.0 мм
 
 >Пора гулять! Выбери утепленный вариант демисезонной одежды, и не бойся ветра или непогоды, их сегодня не ожидается!
