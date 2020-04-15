@@ -30,7 +30,7 @@ def start(update: Update, context):
 
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text=f"Hi, {user_name}! I'm a "
-                                  f"weather bot. Do you wanna now weather in "
+                                  f"weather bot. Do you wanna know weather in "
                                   f"your region? Type /weather command!\n"
                                   f"Or, if you wanna now weather in another place, please provide "
                                   f"latitude and longitude coordinates\n"
