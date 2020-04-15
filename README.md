@@ -2,6 +2,7 @@
 Telegram bot, that can help you to get clothes according to weather
 
 You can find bot in telegram messendger: @RunoVj_bot
+
 Type /start to get instruction or /weather to get current weather in Moscow
 
 # Requirements
