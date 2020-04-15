@@ -34,7 +34,7 @@ def start(update: Update, context):
                                   f"your region? Type /weather command!\n"
                                   f"Or, if you wanna now weather in another place, please provide "
                                   f"latitude and longitude coordinates\n"
-                                  f"\texample: /weather 55.55, 66.66")
+                                  f"\texample: /weather 55.55 66.66")
 
 
 def parse_coordinates(text: str):
