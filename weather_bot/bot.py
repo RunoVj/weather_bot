@@ -8,6 +8,8 @@ from telegram import Message
 from weather_bot.scripts.config_reader import ConfigReader
 from weather_bot.scripts.weather import WeatherInformer
 
+
+# global variables
 config_reader = ConfigReader()
 weather_informer = WeatherInformer()
 
@@ -19,8 +21,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 
 def start(update: Update, context):
-    print(update)
-    print(update.message)
     message: Message = update.message
     user_name = 'Awesome telegram user'
     try:
@@ -52,13 +52,22 @@ def parse_coordinates(text: str):
 
 
 def weather(update, context: callbackcontext.CallbackContext):
-    lat, lon = parse_coordinates(update.message.text)
+    lat = lon = None
+    try:
+        lat, lon = parse_coordinates(update.message.text)
+    except AttributeError as e:
+        pass
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text=weather_informer.get_weather(lat, lon))
 
 
-start_handler = CommandHandler('start', start)
-weather_handler = CommandHandler('weather', weather)
-dispatcher.add_handler(start_handler)
-dispatcher.add_handler(weather_handler)
-updater.start_polling()
+def main():
+    start_handler = CommandHandler('start', start)
+    weather_handler = CommandHandler('weather', weather)
+    dispatcher.add_handler(start_handler)
+    dispatcher.add_handler(weather_handler)
+    updater.start_polling()
+
+
+if __name__ == '__main__':
+    main()
