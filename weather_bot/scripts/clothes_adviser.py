@@ -8,11 +8,11 @@ def recommend_clothes(wind_speed, temp, condition):
     else:
         is_wind_strong = False
 
-    if temp < -10:
+    if temp < -5:
         temp = "cold"
-    elif -10 <= temp < 10:
+    elif -5 <= temp < 15:
         temp = "warm"
-    elif temp >= 10:
+    elif temp >= 15:
         temp = "hot"
 
     if condition in ("overcast-and-rain", "overcast-thunderstorms-with-rain",
@@ -29,46 +29,49 @@ def recommend_clothes(wind_speed, temp, condition):
         condition = "clear"
 
     if temp == "cold" and condition == "rain_or_snow" and is_wind_strong:
-        return "В такой холод лучше надеть три слоя одежды и самую теплую "\
-               "куртку. Будь готов к снегу и ветру, а лучше закажи такси и не "\
-               "мерзни"
+        return " In such a cold weather it is better to wear three layers of " \
+               "clothing and the warmest "\
+               "jacket. Be prepared for snow and wind. Or better order a taxi"
     elif temp == "cold" and condition == "rain_or_snow" and not is_wind_strong:
-        return "В такой холод лучше надеть три слоя одежды и самую теплую " \
-               "куртку."
+        return " In such a cold weather it is better to wear three layers of " \
+               "clothing and the warmest "\
+               "jacket."
     elif temp == "cold" and condition == "overcast":
-        return "Утеплись и приготовься к небольшому снегу. Выбирай теплый" \
-               " пуховик и не забудь шапку"
+        return "Warm up and get ready for a little snow. Choose warm "\
+               "down jacket and do not forget the hat"
     elif temp == "cold" and condition == "clear":
-        return "Пора утепляться! Однако можешь выбирать стильный зимний " \
-               "вариант пальто, не боясь снега"
-
+        return "It's time to warm up! However, you can choose a stylish winter "\
+               "coat option without fear of snow"
     elif temp == "warm" and condition == "rain_or_snow" and is_wind_strong:
-        return "Выбери теплый демисезонный вариант пальто с капюшоном и " \
-               "приготовься к сильной непогоде и ветру. Сегодня не лучшее " \
-               "время носить юбку или ходить без шапки."
-    elif temp == "warm" and condition == "rain_or_snow" and is_wind_strong:
-        return "Выбери теплый демисезонный вариант пальто с капюшоном и " \
-               "приготовься к непогоде. Выбирай утепленные сапоги и не " \
-               "пренебрегай советом носить шапку."
+        return "Choose a warm demi-season version of a coat with a hood and "\
+               "get ready for severe weather and wind. Today is not the best" \
+               "time to wear a skirt or walk without a hat."
+    elif temp == "warm" and condition == "rain_or_snow" and not is_wind_strong:
+        return "Choose a warm demi-season version of a coat with a hood and "\
+               "get ready for bad weather. Choose insulated boots and don't" \
+               "neglect the advice to wear a hat."
     elif temp == "warm" and condition == "overcast":
-        return "Выбери теплый демисезонный вариант и будь вооружен зонтом и " \
-               "капюшоном, а также подумай о непромокаемой обуви. Тогда " \
-               "прогулка не страшна!"
+        return "Choose a warm demi-season option and be armed with an " \
+               "umbrella and hood, and also think of waterproof shoes. Then" \
+               "the walk is not scary!"
     elif temp == "warm" and condition == "clear" and is_wind_strong:
-        return "Выбери утепленный вариант демисезонной одежды, и не бойся " \
-               "осадков, их сегодня не ожидается! Но возьми куртку на случай " \
-               "ветра"
+        return "Choose a warm version of demi-season clothing, and do not be" \
+               " afraid precipitation, it is not expected today! But take a" \
+               " jacket in case of wind"
     elif temp == "warm" and condition == "clear" and not is_wind_strong:
-        return "Пора гулять! Выбери утепленный вариант демисезонной одежды, " \
-               "и не бойся ветра или непогоды, их сегодня не ожидается!"
-
+        return "It's time to walk! Choose an insulated version of " \
+               "semi-season clothing, and do not be afraid of the wind or " \
+               "bad weather, they are not expected today!"
     elif temp == "hot" and condition == "rain_or_snow":
-        return "Приготовься к сильному дождю, зонт и закрытая обувь будут очень кстати! Советуем "
+        return "Today, an umbrella and closed shoes will be necessary! " \
+               "Get ready for heavy rain."
     elif temp == "hot" and condition == "overcast":
-        return "Захвати зонт и непромокаемую куртку от дождя, еще выбери закрытую обувь. Ожидается теплый день!"
-    elif temp == "hot" and condition == "clear" and is_wind_strong == 1:
-        return "Выбирай легкий наряд, но не забудь плащ от ветра!"
-    elif temp == "hot" and condition == "clear" and is_wind_strong == 0:
-        return "Выбирай свой любимый наряд и захвати солнечные очки, лучше " \
-               "погоды не придумать! Время носить юбки, блузы и легкую " \
-               "куртку или пиджак"
+        return "Grab an umbrella and a waterproof jacket from the rain, " \
+               "still choose closed shoes. "\
+                "A warm day is expected!"
+    elif temp == "hot" and condition == "clear" and is_wind_strong:
+        return "Choose a light outfit, but do not forget the raincoat!"
+    elif temp == "hot" and condition == "clear" and not is_wind_strong:
+        return "Choose your favorite outfit and grab sunglasses; " \
+               "you can’t think of a better weather! " \
+               "Time to wear shorts and T-shirts. But grab a light jacket too"
