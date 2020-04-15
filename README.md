@@ -11,13 +11,13 @@ Also you can get weather in another place by providing latitude and longitude co
 # Тестовое задание - "Умный сервис прогноза погоды"
 - Выбранный уровень сложности - сложный
 - Сервис работает как телеграм-бот, в данный момент запущен через heroku и доступен как @RunoVj_bot в телеграмме
-- Умеет привествовать разных пользователей и объясняет как узнать погоду в Москве или в конкретном месте. Также рекомендует, что лучше надеть. Ещё он знает много языков и рекомендации, что надеть, делает на русском:). 
+- Умеет привествовать разных пользователей и объясняет как узнать погоду в Москве или в конкретном месте. Также рекомендует, что лучше надеть и стоит ли выходить на улицу. 
 - Выбранный язык: Python
 - Выбранный сервис для получения информации о погоде: Яндекс@Погода
 
-Пример ответа от бота:
+### Пример ответа от бота:
 
-<br/> >Weather in Europe/Moscow:
+<br/> Weather in Europe/Moscow:
 <br/>    Cloudy
 <br/>    Temperature: +5, feels like -1
 <br/>    Wind speed: 5.0
@@ -26,15 +26,10 @@ Also you can get weather in another place by providing latitude and longitude co
 >Пора гулять! Выбери утепленный вариант демисезонной одежды, и не бойся ветра или непогоды, их сегодня не ожидается!
 
 
-# Requirements
+## Requirements
 Python > 3.6.9 and higher
-
-  python modules:
-
-  pyTelegramBotAPI
-  
-  pyyaml
-  
-  yandex-weather-api
-  
-  python-telegram-bot
+<br/> python modules:
+<br/> pyTelegramBotAPI
+<br/> pyyaml
+<br/> yandex-weather-api
+<br/> python-telegram-bot
