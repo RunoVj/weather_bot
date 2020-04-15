@@ -8,17 +8,23 @@ class WeatherInformer:
     def __init__(self):
         self.config_reader = ConfigReader()
 
-    def get_weather(self, lat: float, lon: float):
+    def get_weather(self, lat: float = None, lon: float = None):
+        if lat is None or lon is None:
+            # Moscow lat and lon as default values
+            lat = 55.751244
+            lon = 37.618423
         resp = yw.get(requests, self.config_reader.api_key, lat=lat, lon=lon,
                       rate='forecast')
         temp = self.process_temperature(resp.get('fact').get('temp'))
         fact_temp = self.process_temperature(resp.get('fact').get('feels_like'))
+        condition = ' '.join(resp.get('fact').get('condition').split('-'))
         return \
-            f"Погода в {resp.get('info').get('tzinfo')['name']}:\n" \
-            f"\tТемпература: {temp}, " \
-            f"ощущается как {fact_temp}\n" \
-            f"\tCкорость ветра: {resp.get('fact').get('wind_speed')}\n" \
-            f"\tДавление: {resp.get('fact').get('pressure_mm')} мм\n"
+            f"Weather in {resp.get('info').get('tzinfo')['name']}:\n" \
+            f"\t{condition.capitalize()}\n" \
+            f"\tTemperature: {temp}, " \
+            f"feels like {fact_temp}\n" \
+            f"\tWind speed: {resp.get('fact').get('wind_speed')}\n" \
+            f"\tPressure: {resp.get('fact').get('pressure_mm')} мм\n"
 
     @staticmethod
     def process_temperature(temp):
@@ -29,16 +35,10 @@ class WeatherInformer:
             temp = str(temp)
         return temp
 
-    @staticmethod
-    def get_temperature(self):
-        temp = str(int(resp.get('fact').get('temp')))
-
 
 if __name__ == '__main__':
     weather_informer = WeatherInformer()
     print(weather_informer.get_weather())
-    # loop = asyncio.get_event_loop()
-    # loop.run_until_complete(main())
 
 
 

@@ -1,0 +1,3 @@
+# rename this file as .authorization.yaml
+token: '<your telegram bot token>'
+api_key: '<your yandex weather api key>'
