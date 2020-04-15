@@ -3,4 +3,4 @@ pyyaml
 requests
 yandex-weather-api
 aiohttp
-bunch
+python-telegram-bot

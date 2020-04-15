@@ -11,22 +11,33 @@ from weather_bot.scripts.config_reader import ConfigReader
 from weather_bot.scripts.weather import WeatherInformer
 
 config_reader = ConfigReader()
-weater_informer = WeatherInformer()
+weather_informer = WeatherInformer()
 
 updater = Updater(token=config_reader.token, use_context=True)
 dispatcher = updater.dispatcher
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                     level=logging.INFO)
+                    level=logging.INFO)
+
+
+def parse_coordinates(text: str):
+    text_lst = text.split(' ')
+    lat = 0
+    lon = 0
+    try:
+        lat = float(text_lst[-2])
+        lon = float(text_lst[-1])
+    except ValueError:
+        pass
+    return lat, lon
 
 
 def start(update: Update, context):
     message: Message = update.message
-
     user_name = 'Awesome telegram user'
     try:
         user_name = message.from_user["first_name"]
-    except:
+    except KeyError:
         pass
 
     context.bot.send_message(chat_id=update.effective_chat.id,
@@ -35,9 +46,10 @@ def start(update: Update, context):
                                   f"your region? Type /weather command!")
 
 
-def weather(update, context:callbackcontext.CallbackContext):
+def weather(update, context: callbackcontext.CallbackContext):
+    lat, lon = parse_coordinates(update.message.text)
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text=weater_informer.get_weather())
+                             text=weather_informer.get_weather(lat, lon))
 
 
 start_handler = CommandHandler('start', start)

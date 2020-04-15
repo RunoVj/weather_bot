@@ -8,9 +8,7 @@ class WeatherInformer:
     def __init__(self):
         self.config_reader = ConfigReader()
 
-    def get_weather(self):
-        lat = 55.75396
-        lon = 37.620393
+    def get_weather(self, lat: float, lon: float):
         resp = yw.get(requests, self.config_reader.api_key, lat=lat, lon=lon,
                       rate='forecast')
         temp = self.process_temperature(resp.get('fact').get('temp'))
@@ -28,9 +26,10 @@ class WeatherInformer:
         if temp > 0:
             temp = '+' + str(temp)
         elif temp < 0:
-            temp = '-' + str(temp)
+            temp = str(temp)
         return temp
 
+    @staticmethod
     def get_temperature(self):
         temp = str(int(resp.get('fact').get('temp')))
 
